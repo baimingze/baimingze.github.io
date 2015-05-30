@@ -7,9 +7,9 @@ set :js_dir,       'javascripts'
 set :partials_dir, 'partials'
 set :images_dir,   'images'
 
-activate :i18n, mount_at_root: :it
+activate :i18n, mount_at_root: :en
 
-activate :syntax
+activate :syntax, :line_numbers => true
 set :markdown_engine, :redcarpet
 set :markdown, fenced_code_blocks: true, smartypants: true
 
