@@ -4,16 +4,52 @@
   <id>http://www.baimingze.com/</id>
   <link href="http://www.baimingze.com/"/>
   <link href="http://www.baimingze.com/feed.xml" rel="self"/>
-  <updated>2015-06-07T08:44:00+01:00</updated>
+  <updated>2015-06-14T11:09:00+01:00</updated>
   <author>
     <name>Bai_Mingze</name>
   </author>
+  <entry>
+    <title>One possible solution for getting black screen when logout/reboot on Linux</title>
+    <link rel="alternate" href="http://www.baimingze.com/blog/2015/06/one-possible-solution-for-getting-black-screen-when-logout-reboot-on-linux.html"/>
+    <id>http://www.baimingze.com/blog/2015/06/one-possible-solution-for-getting-black-screen-when-logout-reboot-on-linux.html</id>
+    <published>2015-06-14T11:09:00+01:00</published>
+    <updated>2015-06-14T11:39:02+01:00</updated>
+    <author>
+      <name>Bai_Mingze</name>
+    </author>
+    <content type="html">&lt;p&gt;I have recently installed Fedora 22(KDE spin) on my laptop(ThinkPad T440, with the Inetel HD graphic card).&lt;/p&gt;
+
+&lt;p&gt;After I logged in the system, everything was fine with the plasma desktop.&lt;/p&gt;
+
+&lt;p&gt;But when I try to logout/reboot(either from KDE or konsole),  I got a black screen, no text, no cursor, just the fan&amp;rsquo;s working noise, telling me that the computer was still working at some level. By the way, the Ctrl+Alt+F1/F2&amp;hellip;got no response neither.&lt;/p&gt;
+
+&lt;p&gt;I have reset the runlevel to 3 and then try to use &amp;ldquo;startx&amp;rdquo;, then I got a black screen on start! Even through I can logged in to KDE at runlevel 5 before.&lt;/p&gt;
+
+&lt;p&gt;After doing google, I got some ideas from the other&amp;rsquo;s posts. And I found a way can help me to get rid of the black screen. &lt;/p&gt;
+
+&lt;p&gt;The main idea is remove the &amp;ldquo;nomodeset&amp;rdquo; from boot. Here is my way indetail:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;backup&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight plaintext"&gt;&lt;table style="border-spacing: 0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="gutter gl" style="text-align: right"&gt;&lt;pre class="lineno"&gt;1
+2&lt;/pre&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre&gt;cp /boot/grub2/grub.cfg /boot/grub2/grub.cfg.bak
+cp /etc/default/grub /etc/default/grub.bak
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;remove &amp;ldquo;nomodeset&amp;rdquo; from these files with your editor&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;enjoy yourself&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+  </entry>
   <entry>
     <title>Are you ready for the open science</title>
     <link rel="alternate" href="http://www.baimingze.com/blog/2015/06/are-you-ready-for-the-open-science.html"/>
     <id>http://www.baimingze.com/blog/2015/06/are-you-ready-for-the-open-science.html</id>
     <published>2015-06-07T08:44:00+01:00</published>
-    <updated>2015-06-07T15:42:24+01:00</updated>
+    <updated>2015-06-13T14:55:48+01:00</updated>
     <author>
       <name>Bai_Mingze</name>
     </author>
@@ -64,7 +100,7 @@ Erin还有很多博客讨论open science的，等有空了仔细阅读一下。&
     <link rel="alternate" href="http://www.baimingze.com/blog/2015/05/attending-the-bible-study.html"/>
     <id>http://www.baimingze.com/blog/2015/05/attending-the-bible-study.html</id>
     <published>2015-05-29T11:44:00+01:00</published>
-    <updated>2015-05-30T22:39:19+01:00</updated>
+    <updated>2015-06-13T14:55:48+01:00</updated>
     <author>
       <name>Bai_Mingze</name>
     </author>
