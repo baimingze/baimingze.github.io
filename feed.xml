@@ -13,7 +13,7 @@
     <link rel="alternate" href="http://www.baimingze.com/blog/2015/06/is-apache-spark-going-to-replace-hadoop-translated-version-in-chinese.html"/>
     <id>http://www.baimingze.com/blog/2015/06/is-apache-spark-going-to-replace-hadoop-translated-version-in-chinese.html</id>
     <published>2015-06-28T20:34:00+01:00</published>
-    <updated>2015-06-30T21:40:17+01:00</updated>
+    <updated>2015-06-30T21:42:39+01:00</updated>
     <author>
       <name>Bai_Mingze</name>
     </author>
@@ -90,13 +90,16 @@ Spark基于内存进行计算，将Hadoop上的一些基于硬盘的计算任务
 Spark支持Java, Scala或Python三种语言，函数库调用简单快捷。它允许开发人员使用自己熟悉的语言快速地创建和运行并行程序。Spark集成内置了超过80个高级“运算子”（operator），有了它们，用户甚至可以用交互命令行的方式来查询数据，不需编写大段大段的代码。&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;采用Spark Python API编写字数统计的例子：
-&lt;code&gt;
-datafile = spark.textFile(&amp;quot;hdfs://...&amp;quot;)
+&lt;p&gt;采用Spark Python API编写字数统计的例子：&lt;/p&gt;
+&lt;div class="highlight plaintext"&gt;&lt;table style="border-spacing: 0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="gutter gl" style="text-align: right"&gt;&lt;pre class="lineno"&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre&gt;datafile = spark.textFile("hdfs://...")
 datafile.flatMap(lambda line: line.split())
         .map(lambda word: (word, 1))
         .reduceByKey(lambda x, y: x+y)
-&lt;/code&gt;&lt;/p&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;联合使用SQL, 流处理和复杂分析
