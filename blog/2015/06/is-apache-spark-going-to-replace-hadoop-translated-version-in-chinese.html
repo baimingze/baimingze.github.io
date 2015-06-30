@@ -111,7 +111,7 @@ Spark支持Java, Scala或Python三种语言，函数库调用简单快捷。它�
 </ol>
 
 <p>采用Spark Python API编写字数统计的例子：
-<code>python
+<code>
 datafile = spark.textFile(&quot;hdfs://...&quot;)
 datafile.flatMap(lambda line: line.split())
         .map(lambda word: (word, 1))

@@ -13,7 +13,7 @@
     <link rel="alternate" href="http://www.baimingze.com/blog/2015/06/is-apache-spark-going-to-replace-hadoop-translated-version-in-chinese.html"/>
     <id>http://www.baimingze.com/blog/2015/06/is-apache-spark-going-to-replace-hadoop-translated-version-in-chinese.html</id>
     <published>2015-06-28T20:34:00+01:00</published>
-    <updated>2015-06-30T21:38:59+01:00</updated>
+    <updated>2015-06-30T21:40:17+01:00</updated>
     <author>
       <name>Bai_Mingze</name>
     </author>
@@ -91,7 +91,7 @@ Spark支持Java, Scala或Python三种语言，函数库调用简单快捷。它�
 &lt;/ol&gt;
 
 &lt;p&gt;采用Spark Python API编写字数统计的例子：
-&lt;code&gt;python
+&lt;code&gt;
 datafile = spark.textFile(&amp;quot;hdfs://...&amp;quot;)
 datafile.flatMap(lambda line: line.split())
         .map(lambda word: (word, 1))
