@@ -4,28 +4,20 @@
   <id>http://www.baimingze.com/</id>
   <link href="http://www.baimingze.com/"/>
   <link href="http://www.baimingze.com/feed.xml" rel="self"/>
-  <updated>2015-06-28T00:00:00+01:00</updated>
+  <updated>2015-06-28T20:34:00+01:00</updated>
   <author>
     <name>Bai_Mingze</name>
   </author>
   <entry>
-    <title/>
+    <title>Is Apache Spark going to replace Hadoop (Translated Version in Chinese)</title>
     <link rel="alternate" href="http://www.baimingze.com/blog/2015/06/is-apache-spark-going-to-replace-hadoop-translated-version-in-chinese.html"/>
     <id>http://www.baimingze.com/blog/2015/06/is-apache-spark-going-to-replace-hadoop-translated-version-in-chinese.html</id>
-    <published>2015-06-28T00:00:00+01:00</published>
-    <updated>2015-06-30T21:34:17+01:00</updated>
+    <published>2015-06-28T20:34:00+01:00</published>
+    <updated>2015-06-30T21:35:44+01:00</updated>
     <author>
       <name>Bai_Mingze</name>
     </author>
-    <content type="html">&lt;hr&gt;
-
-&lt;p&gt;title: Is Apache Spark going to replace Hadoop (Translated Version in Chinese)
-date: 2015-06-28 20:34 BST
-layout:post&lt;/p&gt;
-
-&lt;h2&gt;tags:&lt;/h2&gt;
-
-&lt;p&gt;[版权所有，转载请注明出处：baimingze.github.io]&lt;/p&gt;
+    <content type="html">&lt;p&gt;[版权所有，转载请注明出处：baimingze.github.io]&lt;/p&gt;
 
 &lt;p&gt;在言必称大数据的时代，Hadoop风起云涌，早已成为大数据在技术领域的代名词。然后长江后浪推前浪，Hadoop才进化到2.0版不久，一个号称能够把Hadoop计算速度提高100倍的Spark又横空出世。Spark真的能把Hadoop计算速度提高100倍么？答案是肯定的，在某些迭代次数很多的计算中，采用内存存储中间数据的Spark相比采用硬盘存储中间数据的Hadoop在I/O性能上优势不言而喻。但Spark同时声称，即使对于很多超过内存资源承载能力，需采用硬盘存储的数据处理用例，Spark依然可以凭借其数据结构设计上的优势将速度提高10倍以上。&lt;/p&gt;
 
