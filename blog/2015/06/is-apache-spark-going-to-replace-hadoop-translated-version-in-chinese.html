@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="/css/application.css">
+  <link href="/stylesheets/all-58a46f4f.css" rel="stylesheet" type="text/css" />
+  <meta content="en" name="language">
+  <meta content="Bai Mingze" name="author">
+  <link href="http://feeds.baimingze.com/baimingze" rel="alternate" title="Bai Mingze" type>
+  <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+</head>
+
+
+  <body>
+    <aside class="cover">
+  <div class="inner">
+    <h1 class="title"><a href="/">Bai Mingze</a></h1>
+    <p class="description">Bioinformatics, Algorithoms</p>
+    <ul class="contacts">
+      <li><a href="http://github.com/baimingze/">Github</a></li>
+      <li><a href="http://twitter.com/baimz/">Twitter</a></li>
+    </ul>
+  </div>
+</aside>
+
+
+    <section class="wrapper">
+      <div class="wrapper-inner">
+        <hr>
+
+<p>title: Is Apache Spark going to replace Hadoop (Translated Version in Chinese)
+date: 2015-06-28 20:34 BST
+layout:post</p>
+
+<h2>tags:</h2>
+
+<p>[版权所有，转载请注明出处：baimingze.github.io]</p>
+
+<p>在言必称大数据的时代，Hadoop风起云涌，早已成为大数据在技术领域的代名词。然后长江后浪推前浪，Hadoop才进化到2.0版不久，一个号称能够把Hadoop计算速度提高100倍的Spark又横空出世。Spark真的能把Hadoop计算速度提高100倍么？答案是肯定的，在某些迭代次数很多的计算中，采用内存存储中间数据的Spark相比采用硬盘存储中间数据的Hadoop在I/O性能上优势不言而喻。但Spark同时声称，即使对于很多超过内存资源承载能力，需采用硬盘存储的数据处理用例，Spark依然可以凭借其数据结构设计上的优势将速度提高10倍以上。</p>
+
+<p>业界人士都很关注，Spark会替代Hadoop么？我找到一篇写的很好的博文《<a href="http://aptuz.com/blog/is-apache-spark-going-to-replace-hadoop/">Is Apache Spark going to replace Hadoop?</a>》，特将其翻译过来练练手。以下为翻译内容，原作者为Jameel Mohammed。</p>
+
+<hr>
+
+<p>什么是Apache Spark？
+为什么它在大数据领域如此火爆？
+Apache Spark会替代Hadoop么？
+如果你计划进入大数据分析业务领域，是不是真的需要关注Spark？
+希望本博文能为你解答一些可能近期萦绕在你脑中的问题。</p>
+
+<h2>Apache Spark简介</h2>
+
+<p>和Hadoop一样，Spark也是一种在分布式计算集群上执行常见数据分析任务的框架系统。 它的特点之一是计算过程中的数据可以全部存储在内存中而不需要写入硬盘，从而提供了相比mapreduce更快的计算速度。此外，它还可以：
+ - 运行在已搭建好的Hadoop 集群上
+ - 访问Hadoop 的数据存储系统（HDFS）
+ - 处理Hive存储的结构化数据
+ - 处理来自HDFS,Flume,Kafka,Twitter等平台的流数据</p>
+
+<p><a href="http://aptuz.com/static/media/uploads/blog/spark_arc.png">Spark结构图</a></p>
+
+<blockquote>
+<p>译者注：该图清晰地表明了Spark向开发真和用户提供的语言支持，以及向下提供的数据输入接口支持。图中最上方的蓝色方块里包含了三种语言：Java、Scala、Python，它们是目前Spark支持的3种语言，采用这3种语言可以较轻松地建立Spark数据分析任务。中间灰色方框代表Spark，它包含了3个数据访问子系统：Spark核心系统，Spark SQL和Spark Stream。Spark核心系统处理HDFS和HBase里存储的NoSQL数据;Spark SQL负责处理Hive里存储的结构化（也可以理解成SQL存储的）数据; Spark Stream则可以处理Flume等等所存储的流数据。注意，HDFS、Hbase和Hive被包含在图底部的一个叫做Hadoop的蓝色椭圆形里，因为它们三者都是Hadoop生态系统中的一员。</p>
+</blockquote>
+
+<h2>Apache Spark会替代Hadoop么？</h2>
+
+<p>Hadoop也是”在分布式计算集群上执行常见数据分析任务的框架系统“。不过它所运行的任务是”map/reduce“类型，这些任务通常需要很长的时间才能完成，几分钟甚至几个小时。而Spark的设计理念是：运行于Hadoop集群之上，替代传统批处理式的map/reduce模型，从而能实时完成流数据处理任务以及能在几秒内完成的交互式查询任务。所以，其实Hadoop既支持传统的map/reduce模型，又支持Spark的。为什么这么说呢？因为Hadoop并不单纯是执行MapReduce的一个计算引擎或者编程模型，而代表了一个生态系统，如下图所示。</p>
+
+<p><a href="http://aptuz.com/static/media/uploads/blog/hadoop_echosystem.png">Hadoop生态系统图</a></p>
+
+<blockquote>
+<p>译者注：Hadoop”生态系统“，”物种“很丰富，层次也很分明。可是，图中各个软件/技术（线形方框）之间的连线，以及它们与小圆点之间连线的具体含义没想明白，望指教。
+一时兴起，打个比方：有一个名叫Hadoop鱼缸里养了一条名叫MapReduce的鱼，以及其它一些水草、小虾米（HDFS、YARN）什么的，构成了一个完整的生态系统。但是由于很久一段时间以来，鱼缸里就一条鱼，大家也称这条鱼为Hadoop。现在鱼缸里又放进来一条名叫Spark的鱼，大家都很关心Spark这条游的更快的鱼会取代Hadoop鱼缸里那条名叫MapReduce的鱼么？</p>
+</blockquote>
+
+<h2>Hadoop MapReduce vs. Spark, 该选谁？</h2>
+
+<p>Spark尽量把数据存储在RAM里，从而减少网络和硬盘I/O，当然会比Hadoop MapReduce更快一些。但是它对计算机硬件的配置要求也更高，毕竟大内存也不是说上就能上的，成本可不低。所以答案是：具体问题具体分析，而且随着计算机硬件参数和价格的变化而变化。</p>
+
+<h2>Hadoop Mapreduce 和Apache Spark的区别</h2>
+
+<p>简单一句话：Spark将数据存在内存中而Hadoop则把数据存在硬盘里。Hadoop采用”多份拷贝“（replication）来实现容错机制，而Spark采用另外一种数据存储模型：弹性分布式数据集（Resilient Distributed Datasets，RDD）。RDD采用一种更聪明的方法来实现容错，可以最小化网络I/O。详见UC Berkeley的链接”<a href="http://www.eecs.berkeley.edu/Pubs/TechRpts/2011/EECS-2011-82.html">Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing.</a>“。</p>
+
+<p>Spark的学术论文的描述为：”RDDs通过一种概念沿袭（notion lineage）的方法来实现容错机制：如果一个RDD的某一部分丢失了，该RDD应该拥有足够的信息来重建所丢失的部分“。因此系统不再需要放置多份拷贝来实现容错了。</p>
+
+<blockquote>
+<p>仅从博文中的字句描述，我还以为RDD拥有磁盘阵列RAID一样的纠错机制，直到阅读了论文后才发现不是这么回事。在Spark的计算过程中有一系列的RDD转换过程：RDD1-&gt;RDD2-&gt;RDD3-&gt;&hellip;，如果中间的RDD3的某一部分丢失，那么根据RDD2和基于RDD2的转换，可以重新记算出RDD3的丢失部分。但是这个记算过程和完全重新执行基于RDD2的转换有何区别？是部分与整体的关系么？计算量有多大？我暂未在论文中找到答案。论文原文如下：”RDDs reconstruct lost partitions through lineage : an RDD has enough information about how it was derived from other RDDs to rebuild just the missing partition, without having to checkpoint any data.“</p>
+</blockquote>
+
+<h2>学Apache Spark之前需要先学Hadoop么？</h2>
+
+<p>不需要。
+Spark是一个独立的项目，只不过在Hadoop2.0版和YARN之后，Spark凭借它能运行在HDFS之上和计算速度快的优势，积极融入Hadoop生态系统而异军突起。Spark也借此成为Hadoop 生态系统中另一个重要的数据处理引擎，极大增加了Hadoop栈的能力范围，创利于商业界和业界。</p>
+
+<p>对开发者来说，在这二者之间毫无重叠。在Hadoop框架中你需要继承Java类，编写MapReduce任务。而Spark只是一个可以通过函数调用来进行并行计算的库。
+对计算机集群的操作员来说，在一些通用技能上还是有一部分重叠的，如监控配置（monitoring configuration）、代码部署（code deployment）等。</p>
+
+<h2>Apache Spark 的特性</h2>
+
+<p>此处概述一些Spark在大数据领域凸现的一些重要特性，内容来自<a href="http://spark.apache.org/">http://spark.apache.org/</a>。</p>
+
+<ol>
+<li><p>速度
+Spark基于内存进行计算，将Hadoop上的一些基于硬盘的计算任务加快了100倍； 而一些同样基于硬盘的Spark计算，相对Hadoop仍能提高10倍。Spark成功的诀窍在于——减少硬盘读写次数，因为它能将计算过程中间的数据存储在内存中。 这里面的核心技术名叫弹性分布式数据集（Resilient Distributed Datasets，RDD），它允许Spark透明地（transparently）将数据存储在内存中，并且只在必需的时候才持久化写入到硬盘中。数据处理中的性能瓶颈主要在于硬盘的读写，相比Hadoop，Spark能将读写次数减少一大半，岂能不快？
+<a href="http://aptuz.com/static/media/uploads/blog/.thumbnails/logistic-regression.png/logistic-regression-250x129.png">计算时间比较图</a></p></li>
+<li><p>易用性
+Spark支持Java, Scala或Python三种语言，函数库调用简单快捷。它允许开发人员使用自己熟悉的语言快速地创建和运行并行程序。Spark集成内置了超过80个高级“运算子”（operator），有了它们，用户甚至可以用交互命令行的方式来查询数据，不需编写大段大段的代码。</p></li>
+</ol>
+
+<p>采用Spark Python API编写字数统计的例子：
+<code>python
+datafile = spark.textFile(&quot;hdfs://...&quot;)
+datafile.flatMap(lambda line: line.split())
+        .map(lambda word: (word, 1))
+        .reduceByKey(lambda x, y: x+y)
+</code></p>
+
+<ol>
+<li><p>联合使用SQL, 流处理和复杂分析
+除了简单的“map”和“reduce”之外，Spark还支持SQL查询、流数据以及复杂分析任务（如机器学习、图算法等）。更牛的是，Spark还支持在单个工作流中无缝联合使用它们。</p></li>
+<li><p>多种平台上运行
+Spark可以运行在Hadoop，Mesos上，也可以运行在单机或者云平台上。它能访问的数据源包括HDFS、Cassandra、HBase S3等。</p></li>
+<li><p>Spark明显超越Hadoop的用例</p></li>
+<li><p>迭代计算步骤很多的机器学习算法</p></li>
+<li><p>可交互的数据挖掘和数据处理</p></li>
+<li><p>完全兼容Apache Hive数据仓库系统，并比Hive快100倍以上</p></li>
+<li><p>流处理：在实时流数据中进行日志处理、欺诈检测（报警、集成、分析）</p></li>
+<li><p>传感器数据处理：将多点检测、终点汇集的数据放置在内存中进行处理，简单快速</p></li>
+</ol>
+
+<p>Spark虽然很强，但是仍旧还在成长中。直白点说，Bug还不少。</p>
+
+<h2>到你了，开始学吧</h2>
+
+<p>你很容易就能用Spark写出强大的大数据应用，相信我。
+你已有的Hadoop 和/或编程技能可以让你在短短几分钟内就能富有成效地与你的数据交互。
+你可以这样开始学：
+下载： http://spark.incubator.apache.org/downloads.html
+快速开始: http://spark.incubator.apache.org/docs/latest/quick-start.html
+Spark 峰会 2013 (Dec. 2, 2013): http://spark-summit.org
+Amazon Web Services 文档: https://aws.amazon.com/articles/4926593393724923</p>
+
+      </div>
+    </section>
+    <script src="/javascripts/all-115f1ba1.js" type="text/javascript"></script>
+
+
+  </body>
+</html>
+
