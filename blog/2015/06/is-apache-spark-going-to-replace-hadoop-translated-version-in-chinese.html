@@ -59,7 +59,7 @@ Apache Spark会替代Hadoop么？
  - 处理Hive存储的结构化数据
  - 处理来自HDFS,Flume,Kafka,Twitter等平台的流数据</p>
 
-<p><a href="http://aptuz.com/static/media/uploads/blog/spark_arc.png">Spark结构图</a></p>
+<p><img alt="Spark结构图" src="http://aptuz.com/static/media/uploads/blog/spark_arc.png" /></p>
 
 <blockquote>
 <p>译者注：该图清晰地表明了Spark向开发真和用户提供的语言支持，以及向下提供的数据输入接口支持。图中最上方的蓝色方块里包含了三种语言：Java、Scala、Python，它们是目前Spark支持的3种语言，采用这3种语言可以较轻松地建立Spark数据分析任务。中间灰色方框代表Spark，它包含了3个数据访问子系统：Spark核心系统，Spark SQL和Spark Stream。Spark核心系统处理HDFS和HBase里存储的NoSQL数据;Spark SQL负责处理Hive里存储的结构化（也可以理解成SQL存储的）数据; Spark Stream则可以处理Flume等等所存储的流数据。注意，HDFS、Hbase和Hive被包含在图底部的一个叫做Hadoop的蓝色椭圆形里，因为它们三者都是Hadoop生态系统中的一员。</p>
@@ -69,7 +69,7 @@ Apache Spark会替代Hadoop么？
 
 <p>Hadoop也是”在分布式计算集群上执行常见数据分析任务的框架系统“。不过它所运行的任务是”map/reduce“类型，这些任务通常需要很长的时间才能完成，几分钟甚至几个小时。而Spark的设计理念是：运行于Hadoop集群之上，替代传统批处理式的map/reduce模型，从而能实时完成流数据处理任务以及能在几秒内完成的交互式查询任务。所以，其实Hadoop既支持传统的map/reduce模型，又支持Spark的。为什么这么说呢？因为Hadoop并不单纯是执行MapReduce的一个计算引擎或者编程模型，而代表了一个生态系统，如下图所示。</p>
 
-<p><a href="http://aptuz.com/static/media/uploads/blog/hadoop_echosystem.png">Hadoop生态系统图</a></p>
+<p><img alt="Hadoop生态系统图" src="http://aptuz.com/static/media/uploads/blog/hadoop_echosystem.png" /></p>
 
 <blockquote>
 <p>译者注：Hadoop”生态系统“，”物种“很丰富，层次也很分明。可是，图中各个软件/技术（线形方框）之间的连线，以及它们与小圆点之间连线的具体含义没想明白，望指教。
@@ -105,7 +105,7 @@ Spark是一个独立的项目，只不过在Hadoop2.0版和YARN之后，Spark凭
 <ol>
 <li><p>速度
 Spark基于内存进行计算，将Hadoop上的一些基于硬盘的计算任务加快了100倍； 而一些同样基于硬盘的Spark计算，相对Hadoop仍能提高10倍。Spark成功的诀窍在于——减少硬盘读写次数，因为它能将计算过程中间的数据存储在内存中。 这里面的核心技术名叫弹性分布式数据集（Resilient Distributed Datasets，RDD），它允许Spark透明地（transparently）将数据存储在内存中，并且只在必需的时候才持久化写入到硬盘中。数据处理中的性能瓶颈主要在于硬盘的读写，相比Hadoop，Spark能将读写次数减少一大半，岂能不快？
-<a href="http://aptuz.com/static/media/uploads/blog/.thumbnails/logistic-regression.png/logistic-regression-250x129.png">计算时间比较图</a></p></li>
+<img alt="计算时间比较图" src="http://aptuz.com/static/media/uploads/blog/.thumbnails/logistic-regression.png/logistic-regression-250x129.png" /></p></li>
 <li><p>易用性
 Spark支持Java, Scala或Python三种语言，函数库调用简单快捷。它允许开发人员使用自己熟悉的语言快速地创建和运行并行程序。Spark集成内置了超过80个高级“运算子”（operator），有了它们，用户甚至可以用交互命令行的方式来查询数据，不需编写大段大段的代码。</p></li>
 </ol>
