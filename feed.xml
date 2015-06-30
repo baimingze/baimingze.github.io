@@ -13,7 +13,7 @@
     <link rel="alternate" href="http://www.baimingze.com/blog/2015/06/is-apache-spark-going-to-replace-hadoop-translated-version-in-chinese.html"/>
     <id>http://www.baimingze.com/blog/2015/06/is-apache-spark-going-to-replace-hadoop-translated-version-in-chinese.html</id>
     <published>2015-06-28T20:34:00+01:00</published>
-    <updated>2015-06-30T21:42:39+01:00</updated>
+    <updated>2015-06-30T21:44:52+01:00</updated>
     <author>
       <name>Bai_Mingze</name>
     </author>
@@ -106,12 +106,15 @@ datafile.flatMap(lambda line: line.split())
 除了简单的“map”和“reduce”之外，Spark还支持SQL查询、流数据以及复杂分析任务（如机器学习、图算法等）。更牛的是，Spark还支持在单个工作流中无缝联合使用它们。&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;多种平台上运行
 Spark可以运行在Hadoop，Mesos上，也可以运行在单机或者云平台上。它能访问的数据源包括HDFS、Cassandra、HBase S3等。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Spark明显超越Hadoop的用例&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;迭代计算步骤很多的机器学习算法&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;可交互的数据挖掘和数据处理&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;完全兼容Apache Hive数据仓库系统，并比Hive快100倍以上&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;流处理：在实时流数据中进行日志处理、欺诈检测（报警、集成、分析）&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;传感器数据处理：将多点检测、终点汇集的数据放置在内存中进行处理，简单快速&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Spark明显超越Hadoop的用例&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;迭代计算步骤很多的机器学习算法&lt;/li&gt;
+&lt;li&gt;可交互的数据挖掘和数据处理&lt;/li&gt;
+&lt;li&gt;完全兼容Apache Hive数据仓库系统，并比Hive快100倍以上&lt;/li&gt;
+&lt;li&gt;流处理：在实时流数据中进行日志处理、欺诈检测（报警、集成、分析）&lt;/li&gt;
+&lt;li&gt;传感器数据处理：将多点检测、终点汇集的数据放置在内存中进行处理，简单快速&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;Spark虽然很强，但是仍旧还在成长中。直白点说，Bug还不少。&lt;/p&gt;
